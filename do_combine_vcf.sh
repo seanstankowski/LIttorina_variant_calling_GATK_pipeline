@@ -54,8 +54,9 @@ then
 	gatk --java-options "-Xmx20g" GenotypeGVCFs \
 	   -R ${tmp}/${tmp}.fasta \
    	   -V gendb://${tmp}/db/ \
-   	   -O ${tmp}/${tmp}.combined.vcf.gz
-   	   --include-non-variant-sites
+   	   -O ${tmp}/${tmp}.combined.vcf.gz \
+   	   --include-non-variant-sites \
+   	   --allow-old-rms-mapping-quality-annotation-data
 
 	status=$?
 	if [ $status == 0 ];
