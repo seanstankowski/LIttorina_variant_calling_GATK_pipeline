@@ -1,9 +1,7 @@
 #!/bin/bash
 #$ -l rmem=16G
-#$ -P bioinf-core
 #$ -m bea # send mails at beginning, end and if aborted unexpectedly
-#$ -M m.j.dunning@Sheffield.ac.uk # mail sent to this address
-
+#$ -M 
 IN_DIR=$1
 OUT_DIR=$2
 
