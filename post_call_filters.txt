@@ -33,3 +33,11 @@ find . -name '*.combined.vcf.gz' -exec mv {} /fastdata/bo1srs/Take_4_VCFs \;
 #----- drop invariant sites for a file containing only the variants as there is no point feeding the invariant sites to many analyses
 
 /data/bo1srs/bcftools-1.15/bcftools view --min-alleles 2 /fastdata/bo1srs/all_sites_108_littorina.vcf.gz -O z -o /fastdata/bo1srs/variant_sites_108_littorina.vcf.gz --threads 16 
+
+#----- Phase data using beagle, full dataset and variants only dataset
+
+module load apps/java
+
+java -jar /data/bo1srs/beagle.18May20.d20.jar gt=variants_only_108_littorina.vcf.gz  out=PHASED_variants_only_108_littorina.vcf.gz nthreads=16 
+
+java -jar /data/bo1srs/beagle.18May20.d20.jar gt=all_sites_108_littorina.vcf.gz  out=PHASED_all_sites_108_littorina.vcf.gz nthreads=16 
